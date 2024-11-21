@@ -1,7 +1,6 @@
-import 'dart:ui';
 
-import 'package:bullets/models/ImageModel.dart';
-import 'package:bullets/models/VideoModel.dart';
+import 'ImageModel.dart';
+import 'VideoModel.dart';
 
 class ConversationModel {
   String? id;
