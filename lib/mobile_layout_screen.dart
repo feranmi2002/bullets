@@ -1,4 +1,5 @@
 import 'package:bullets/colors.dart';
+import 'package:bullets/features/course/screen/course_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'features/conversation/screen/conversation_screen.dart';
@@ -29,27 +30,31 @@ class _MobileLayoutScreenState extends State<MobileLayoutScreen>
     return Scaffold(
       body: TabBarView(
         controller: tabController,
-        children: const [
-          Center(child: Text('courses')),
+        children: [
+          CourseScreen(),
           ConversationScreen(),
-          Center(child: Text('Categories')),
-          Center(child: Text('more')),
+          const Center(child: Text('Categories')),
+          const Center(child: Text('more')),
         ],
       ),
-      bottomNavigationBar: Container(
-        decoration: const BoxDecoration(color: backgroundColor),
-        child: TabBar(
-          controller: tabController,
-          labelColor: Colors.black,
-          unselectedLabelColor: Colors.grey,
-          labelStyle: const TextStyle(fontWeight: FontWeight.bold),
-          indicatorColor: Colors.black, // Add indicator color
-          tabs: const [
-            Tab(icon: Icon(Icons.book)),
-            Tab(icon: Icon(Icons.list_alt)),
-            Tab(icon: Icon(Icons.add_box)),
-            Tab(icon: Icon(Icons.more_horiz)),
-          ],
+      bottomNavigationBar: Material(
+        elevation: 10,
+        shadowColor: Colors.black, // Customize shadow colour
+        child: Container(
+          decoration: const BoxDecoration(color: backgroundColor),
+          child: TabBar(
+            controller: tabController,
+            labelColor: Colors.black,
+            unselectedLabelColor: Colors.grey,
+            labelStyle: const TextStyle(fontWeight: FontWeight.bold),
+            indicatorColor: Colors.black, // Add indicator color
+            tabs: const [
+              Tab(icon: Icon(Icons.book)),
+              Tab(icon: Icon(Icons.list_alt)),
+              Tab(icon: Icon(Icons.add_box)),
+              Tab(icon: Icon(Icons.more_horiz)),
+            ],
+          ),
         ),
       ),
     );

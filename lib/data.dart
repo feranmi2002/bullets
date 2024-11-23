@@ -16,7 +16,7 @@ List<ConversationModel> allConversions =[
     id: '2',
     type: 'image',
     imageModel: ImageModel(
-      url: 'https://example.com/image1.jpg',
+      url: 'https://images.pexels.com/photos/29127453/pexels-photo-29127453/free-photo-of-colorful-wooden-house-roofs-at-sunset.jpeg',
       caption: 'This is an image',
       name: 'image'
     ),
@@ -44,7 +44,7 @@ List<ConversationModel> allConversions =[
     id: '5',
     type: 'image',
     imageModel: ImageModel(
-      url: 'https://example.com/image2.jpg',
+      url: 'https://images.pexels.com/photos/29473242/pexels-photo-29473242/free-photo-of-bright-tulip-bouquet-in-natural-light.jpeg',
       caption: 'This is another image',
       name: 'image'
     ),
