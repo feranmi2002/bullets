@@ -1,13 +1,14 @@
+import 'package:bullets/features/subject/widget/subject_list.dart';
 import 'package:flutter/material.dart';
 
-class CourseScreen extends StatefulWidget {
-  const CourseScreen({super.key});
+class SubjectScreen extends StatefulWidget {
+  const SubjectScreen({super.key});
 
   @override
-  State<CourseScreen> createState() => _BookMarkScreenState();
+  State<SubjectScreen> createState() => _BookMarkScreenState();
 }
 
-class _BookMarkScreenState extends State<CourseScreen> {
+class _BookMarkScreenState extends State<SubjectScreen> {
   bool _status = true;
 
   void _onClicked() {
@@ -120,6 +121,8 @@ class _BookMarkScreenState extends State<CourseScreen> {
               ),
             ],
           ),
+          const SizedBox(height: 20), //
+          Expanded(child: SubjectList())
         ],
       ),
     );

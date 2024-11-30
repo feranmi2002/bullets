@@ -1,8 +1,9 @@
 import 'package:bullets/colors.dart';
-import 'package:bullets/features/course/screen/course_screen.dart';
+
 import 'package:flutter/material.dart';
 
 import 'features/conversation/screen/conversation_screen.dart';
+import 'features/subject/screen/subject_screen.dart';
 
 class MobileLayoutScreen extends StatefulWidget {
   const MobileLayoutScreen({super.key});
@@ -30,11 +31,11 @@ class _MobileLayoutScreenState extends State<MobileLayoutScreen>
     return Scaffold(
       body: TabBarView(
         controller: tabController,
-        children: [
-          CourseScreen(),
+        children: const [
+          SubjectScreen(),
           ConversationScreen(),
-          const Center(child: Text('Categories')),
-          const Center(child: Text('more')),
+          Center(child: Text('Categories')),
+          Center(child: Text('more')),
         ],
       ),
       bottomNavigationBar: Material(

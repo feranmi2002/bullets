@@ -1,4 +1,6 @@
 import 'package:bullets/data.dart';
+import 'package:bullets/features/subject/widget/subject_list.dart';
+import 'package:bullets/models/lesson_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -7,7 +9,8 @@ import '../controller/conversation_controller.dart';
 import '../widgets/conversation_list.dart';
 
 class ConversationScreen extends ConsumerWidget {
-  const ConversationScreen({Key? key}) : super(key: key);
+  final LessonModel? lessonModel;
+  const ConversationScreen({Key? key, this.lessonModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -19,7 +22,7 @@ class ConversationScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Converse"),
+        title:  Text(lessonModel!.title!),
         centerTitle: false,
         backgroundColor: backgroundColor,
         actions: [

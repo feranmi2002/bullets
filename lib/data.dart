@@ -1,6 +1,8 @@
 import 'models/ImageModel.dart';
 import 'models/VideoModel.dart';
 import 'models/conversation_model.dart';
+import 'models/lesson_model.dart';
+import 'models/subject_model.dart';
 
 
 
@@ -52,3 +54,101 @@ List<ConversationModel> allConversions =[
     subjectId: 'subject5',
   ),
 ];
+
+
+List<SubjectModel> dummySubjects = [
+  SubjectModel(
+    id: "subject1",
+    title: "Mathematics",
+    otherDetails: "This is a mathematics subject",
+    duration: "2 hours",
+    category: "Science",
+    draft: false,
+    imageUrl: "https://picsum.photos/200/300",
+    author: "John Doe",
+  ),
+  SubjectModel(
+    id: "subject2",
+    title: "English Language",
+    otherDetails: "This is an English language subject",
+    duration: "1.5 hours",
+    category: "Arts",
+    draft: true,
+    imageUrl: "https://picsum.photos/200/301",
+    author: "Jane Doe",
+  ),
+  SubjectModel(
+    id: "subject3",
+    title: "Biology",
+    otherDetails: "This is a biology subject",
+    duration: "2.5 hours",
+    category: "Science",
+    draft: false,
+    imageUrl: "https://picsum.photos/200/302",
+    author: "Bob Smith",
+  ),
+  SubjectModel(
+    id: "subject4",
+    title: "History",
+    otherDetails: "This is a history subject",
+    duration: "1 hour",
+    category: "Arts",
+    draft: true,
+    imageUrl: "https://picsum.photos/200/303",
+    author: "Alice Johnson",
+  ),
+  SubjectModel(
+    id: "subject5",
+    title: "Physics",
+    otherDetails: "This is a physics subject",
+    duration: "3 hours",
+    category: "Science",
+    draft: false,
+    imageUrl: "https://picsum.photos/200/304",
+    author: "Mike Brown",
+  ),
+];
+
+List<LessonModel> dummyLessons = [
+  LessonModel(
+    id: "lesson1",
+    lesson: 1,
+    title: "Introduction to Algebra",
+    topicId: "Maths-101",
+  ),
+  LessonModel(
+    id: "lesson2",
+    lesson: 2,
+    title: "Equations and Inequalities",
+    topicId: "Maths-101",
+  ),
+  LessonModel(
+    id: "lesson3",
+    lesson: 3,
+    title: "Functions and Graphs",
+    topicId: "Maths-101",
+  ),
+  LessonModel(
+    id: "lesson4",
+    lesson: 4,
+    title: "Systems of Equations",
+    topicId: "Maths-101",
+  ),
+  LessonModel(
+    id: "lesson5",
+    lesson: 5,
+    title: "Quadratic Equations",
+    topicId: "Maths-101",
+  ),
+];
+//
+// // If you want to generate the dummy data using a loop
+// List<LessonModel> dummyLessonsGenerated = List.generate(
+//   10,
+//       (index) => LessonModel(
+//     id: "${index + 1}",
+//     lesson: index + 1,
+//     title: "Lesson ${index + 1}: Introduction to Topic ${index + 1}",
+//     topicId: "Topic-${index + 1}",
+//   ),
+// );
