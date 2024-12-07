@@ -1,14 +1,20 @@
+import 'package:bullets/common/controller/all_controller.dart';
+import 'package:bullets/features/conversation/repository/conversation_provider.dart';
 import 'package:bullets/features/subject/widget/subject_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SubjectScreen extends StatefulWidget {
+import '../../../common/util.dart';
+import '../../conversation/screen/conversation_screen.dart';
+
+class SubjectScreen extends ConsumerStatefulWidget {
   const SubjectScreen({super.key});
 
   @override
-  State<SubjectScreen> createState() => _BookMarkScreenState();
+  ConsumerState<SubjectScreen> createState() => _BookMarkScreenState();
 }
 
-class _BookMarkScreenState extends State<SubjectScreen> {
+class _BookMarkScreenState extends ConsumerState<SubjectScreen> {
   bool _status = true;
 
   void _onClicked() {
@@ -34,16 +40,33 @@ class _BookMarkScreenState extends State<SubjectScreen> {
               ),
             ),
             child: Center(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(20),
-                  border:  Border.all(color: Colors.white),
-                ),
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                child: const Text(
-                  "Continue Reading",
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              child: InkWell(
+                onTap: () {
+                  final savedLessonId = ref.read(saveLessonProvider.notifier).getLesson();
+                  if (savedLessonId != null) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ConversationScreen(lessonModel: savedLessonId),
+                      ),
+                    );
+                  } else {
+                    showSnackBar(context: context, content: 'No reading yet');
+                  }
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.white),
+                  ),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: const Text(
+                    "Continue Reading",
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
             ),
@@ -74,7 +97,8 @@ class _BookMarkScreenState extends State<SubjectScreen> {
                 child: GestureDetector(
                   onTap: _onClicked,
                   child: Chip(
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
                     label: Row(
                       children: [
                         if (_status)
@@ -90,7 +114,8 @@ class _BookMarkScreenState extends State<SubjectScreen> {
                         ),
                       ],
                     ),
-                    backgroundColor: _status ? Colors.black : Colors.black.withOpacity(0.5),
+                    backgroundColor:
+                        _status ? Colors.black : Colors.black.withOpacity(0.5),
                   ),
                 ),
               ),
@@ -99,7 +124,8 @@ class _BookMarkScreenState extends State<SubjectScreen> {
                 child: GestureDetector(
                   onTap: _onClicked,
                   child: Chip(
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
                     label: Row(
                       children: [
                         if (!_status)
@@ -115,7 +141,8 @@ class _BookMarkScreenState extends State<SubjectScreen> {
                         ),
                       ],
                     ),
-                    backgroundColor: !_status ? Colors.black : Colors.black.withOpacity(0.5),
+                    backgroundColor:
+                        !_status ? Colors.black : Colors.black.withOpacity(0.5),
                   ),
                 ),
               ),

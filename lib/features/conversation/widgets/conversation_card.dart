@@ -1,13 +1,15 @@
 import 'package:bullets/colors.dart';
 import 'package:bullets/models/conversation_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:swipe_to/swipe_to.dart';
 
+import '../../../core/network/responses/conversation_response.dart';
 import 'display_text_files.dart';
 
 class ConversationCard extends StatelessWidget {
   final VoidCallback onLeftSwipe;
-  final ConversationModel conversationModel;
+  final Conversation conversationModel;
 
   const ConversationCard({
     Key? key,
@@ -31,19 +33,23 @@ class ConversationCard extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8)),
               color: cardColor,
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+              margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
               child: Padding(
-                padding: const EdgeInsets.only(
-                  left: 20,
-                  right: 20,
-                  top: 20,
-                  bottom: 20,
-                ),
-                child: DisplayTextImagesGif(
-                  conversationModel: conversationModel,
-                ),
-              ),
+                  padding: const EdgeInsets.only(
+                    left: 20,
+                    right: 20,
+                    top: 20,
+                    bottom: 20,
+                  ),
+                  child: HtmlWidget(
+                    conversationModel.message ?? "",
+                    enableCaching: true,
+                    textStyle: TextStyle(fontSize: 15),
+                  )
+                  // DisplayTextImagesGif(
+                  //   conversationModel: conversationModel,
+                  // ),
+                  ),
             )));
   }
 }

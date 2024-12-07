@@ -1,4 +1,5 @@
 import 'package:bullets/colors.dart';
+import 'package:bullets/features/onBroading/screens/splash_screen.dart';
 import 'package:bullets/mobile_layout_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(backgroundColor: backgroundColor),
         useMaterial3: true,
       ),
-      home: const MobileLayoutScreen(),
+      home: const SplashScreen(),
     );
   }
 }
